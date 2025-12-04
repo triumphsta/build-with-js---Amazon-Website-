@@ -41,6 +41,16 @@
 
 <script>
 
+
+    // document.getElementById('historu').onclick = function () {}   
+    
+    let score = {
+        wins: 0,
+        losses: 0,
+        ties: 0
+    };
+  
+    // Reset score
     document.getElementById('resetScore').onclick = function () {
         score.wins = 0;
         score.losses = 0;
@@ -48,15 +58,8 @@
         document.getElementById('score').innerText =  `You've Won ${score.wins} times\nYou've Lost ${score.losses} times\nYou've Tied ${score.ties} times`;
     };
 
-    document.getElementById('historu').onclick = function ()    
-    
-    var score = {
-        wins: 0,
-        losses: 0,
-        ties: 0
-    };
 
-
+    //computer choices
     const choices = ['Rock', 'Paper', 'Scissors']
 
     function getComputerChoice() {
@@ -64,7 +67,7 @@
     }
     
    
-
+    // user move function
     function playRound(userMove) {
         let result = '';
         const computerMove = getComputerChoice();
@@ -88,17 +91,26 @@
         }
 
         // Update the result text
-        document.getElementById('score').innerText =  `You've Won ${score.wins} times\nYou've Lost ${score.losses} times\nYou've Tied ${score.ties} times`;
+        document.getElementById('score').innerText =  `You've Won ${score.wins} times
+        You've Lost ${score.losses} times\nYou've Tied ${score.ties} times`;
         document.getElementById('result').innerText = result + '\n' + `Computer Move is ${computerMove} and Your Move ${userMove}`;
 
+        // for local storage
         localStorage.setItem('score', JSON.stringify(score));
         let history = JSON.parse(localStorage.getItem('score'));
-        document.getElementById('history').innerText = history;
+        var historyElement = 
+
+        document.getElementById('historu').onclick = function() {
+            
+            document.getElementById('history').innerText = `Wins: ${history.wins}, Losses: ${history.losses}, Ties: ${history.ties}`;
+            
+        };
         console.log(history);
+
         
     }
 
-    // document.getElementById('history').innerText = history;
+    
 
     document.getElementById('rock').onclick = function () {
         playRound('Rock')
