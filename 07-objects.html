@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function/objects</title>
+</head>
+<body>
+    <script>
+        // const result = '0' ? 'truthy' : 'falsy'; 
+        // console.log(result);
+
+        const product = {
+            name: 'socks',
+            price: 10000,
+            description: 'cotton socks',
+            ['delivery-time']: '5-7 days',
+            'rating': {
+                stars: 4,
+                count: 100
+            },
+            func: function() {
+                console.log('hello');
+            }
+        };
+
+        console.log(product)
+        console.log(product.name)
+
+        product.name = 'cotton socks';
+        console.log(product);
+        console.log(product['delivery-time']);
+        console.log(product.rating.stars);
+        product.func();
+
+        console.log(JSON.stringify(product));
+        let jsonstring = JSON.stringify(product);
+        console.log(JSON.parse(jsonstring))
+    </script>
+</body>
+</html>

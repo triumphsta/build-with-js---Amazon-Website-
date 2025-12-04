@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+
+    <style>
+    body { text-align: center; font-family: sans-serif; margin-top: 50px; }
+    button { margin: 5px; padding: 10px 20px; font-size: 16px; border-radius: 2em; }
+    #result, #score { white-space: pre-line; margin-top: 20px; font-size: 18px; }
+</style>
+</head>
+
+<body>
+    <div>
+        <h1>Rock Paper Scissors</h1>
+        <div>
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+        </div>
+        <div>
+            <p id="result"></p>
+        </div>
+        <div>
+            <h4 id="score"></h4>
+        </div>
+        <div>
+            <button id="resetScore">Reset Game</button>
+        </div>
+        <div>
+        <button id="historu">
+            History
+        </button>
+        <h4 id="history"></h4>
+        </div>
+    </div>
+</body>
+
+<script>
+
+    document.getElementById('resetScore').onclick = function () {
+        score.wins = 0;
+        score.losses = 0;
+        score.ties = 0;
+        document.getElementById('score').innerText =  `You've Won ${score.wins} times\nYou've Lost ${score.losses} times\nYou've Tied ${score.ties} times`;
+    };
+
+    document.getElementById('historu').onclick = function ()    
+    
+    var score = {
+        wins: 0,
+        losses: 0,
+        ties: 0
+    };
+
+
+    const choices = ['Rock', 'Paper', 'Scissors']
+
+    function getComputerChoice() {
+        return choices[Math.floor(Math.random() * choices.length)]
+    }
+    
+   
+
+    function playRound(userMove) {
+        let result = '';
+        const computerMove = getComputerChoice();
+
+        if (userMove === computerMove) {
+            result = 'Tie';
+            score.ties++;
+
+        }
+        else if (
+            (userMove === 'Rock' && computerMove === 'Scissors') ||
+            (userMove === 'Paper' && computerMove === 'Rock') ||
+            (userMove === 'Scissors' && computerMove === 'Paper')) {
+            result = 'You Win'.toUpperCase();
+            score.wins++;
+            console.log(computerMove)
+        }
+        else {
+            result = ('You Loose').toUpperCase();
+            score.losses++;
+        }
+
+        // Update the result text
+        document.getElementById('score').innerText =  `You've Won ${score.wins} times\nYou've Lost ${score.losses} times\nYou've Tied ${score.ties} times`;
+        document.getElementById('result').innerText = result + '\n' + `Computer Move is ${computerMove} and Your Move ${userMove}`;
+
+        localStorage.setItem('score', JSON.stringify(score));
+        let history = JSON.parse(localStorage.getItem('score'));
+        document.getElementById('history').innerText = history;
+        console.log(history);
+        
+    }
+
+    // document.getElementById('history').innerText = history;
+
+    document.getElementById('rock').onclick = function () {
+        playRound('Rock')
+    }
+    document.getElementById('paper').onclick = function () {
+        playRound('Paper')
+    }
+    document.getElementById('scissors').onclick = function () {
+        playRound('Scissors')
+    }
+// localStorage.setItem('message', 'learning js is boring');
+// console.log(localStorage.getItem('message'));
+
+    // Update the score
+    // if (result === 'You Win') {
+    //     score.wins++;
+    // }
+    // else if (result === 'You Loose') {
+    //     score.losses++;
+    // }
+    // else {
+    //     score.ties++;
+    // }
+
+
+</script>
+
+
+</html>
