@@ -10,7 +10,7 @@
         // const result = '0' ? 'truthy' : 'falsy'; 
         // console.log(result);
 
-        const product = {
+        const product1 = {
             name: 'socks',
             price: 10000,
             description: 'cotton socks',
@@ -20,22 +20,68 @@
                 count: 100
             },
             func: function() {
-                console.log('hello');
+                console.log('hello'.localeCompare);
             }
         };
 
-        console.log(product)
-        console.log(product.name)
+        console.log('hekko llll'.trimLeft)
 
-        product.name = 'cotton socks';
-        console.log(product);
-        console.log(product['delivery-time']);
-        console.log(product.rating.stars);
-        product.func();
+        console.log(product1)
+        console.log(product1.name)
 
-        console.log(JSON.stringify(product));
-        let jsonstring = JSON.stringify(product);
-        console.log(JSON.parse(jsonstring))
+        // product.name = 'cotton socks';
+        // console.log(product);
+        // console.log(product['delivery-time']);
+        // console.log(product.rating.stars);
+        // product.func();
+
+        //objects references
+        const product2 = product1;
+        product2.price = 2000
+        console.log(product2);
+ 
+        const product3 = {
+            message: 20000,
+        }
+
+        console.log(product1 === product2)
+        console.log(product2 === product3)
+         
+
+        // console.log(JSON.stringify(product));
+        // let jsonstring = JSON.stringify(product);
+        // console.log(JSON.parse(jsonstring))
+
+        let product4 = {
+            price: 30000,
+            name: 'clock',
+        };
+/* let price = product4.price;
+is also same with whats below ⏬ */ 
+        const { price, name } = product4;
+        console.log(price, name);
+
+ // short hand for object
+        let product5 = {
+            name,
+            method() {
+                console.log('mmmmmmmmmmmmmmm');
+            }
+        };
+        console.log(product5);
+        product5.method();
+
+        
+    //odins project js objects
+    function Player(name, marker) {
+        this.name = name;
+        this.sayName = function() {
+            console.log(this.name)
+        }
+    }
+    let player1 = new Player('tstar', 'x');
+    player1.sayName()
+        
     </script>
 </body>
 </html>

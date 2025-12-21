@@ -28,7 +28,7 @@
             <h4 id="score"></h4>
         </div>
         <div>
-            <button id="resetScore">Reset Game</button>
+            <button type="reset" id="resetScore">Reset Game</button>
         </div>
         <div>
         <button id="historu">
@@ -42,7 +42,7 @@
 <script>
 
 
-    // document.getElementById('historu').onclick = function () {}   
+  
     
     let score = {
         wins: 0,
@@ -56,6 +56,7 @@
         score.losses = 0;
         score.ties = 0;
         document.getElementById('score').innerText =  `You've Won ${score.wins} times\nYou've Lost ${score.losses} times\nYou've Tied ${score.ties} times`;
+        
     };
 
 
@@ -134,6 +135,7 @@
     // else {
     //     score.ties++;
     // }
+
 
 
 </script>

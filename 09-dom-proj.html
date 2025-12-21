@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* General design */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            line-height: 1.5;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: left;
+            margin: 20px;
+        }
+        /* subscribe button */
+        .button-subscribe {
+            background-color: hsl(0, 23%, 96%);
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 10px 20px;
+            font-size: 15px;
+            font-weight:540;
+            cursor: pointer;
+            border-radius: 20px;
+        }
+        .button-subscribe:hover {
+            background-color: hsl(0, 2%, 90%);
+            color: rgb(5, 0, 0);
+            border-radius: 20px;
+        }
+        .is_subscribed-button {
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+        }
+        .is_subscribed-button:hover {
+            background-color: hsl(0, 2%, 13%);
+            color: rgb(255, 255, 255);
+            border-radius: 20px;
+        }
+        /* rock, paper, scissors */
+        .rock-paper-scissors {
+            margin-top: 2rem;
+            padding: 10px;
+            margin-top: 2rem;
+            width: 250px;
+        }
+        
+        /* for tags */
+        p {
+            font-size: 18px;
+            padding: 10px 0;
+        }
+        /* shipping calculator */
+        .cost-input {
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 200px;
+            margin-top: 10px;
+        }
+        .cost-input:focus {
+            outline: none;
+            border-color: #0fb54c;
+            box-shadow: 0 0 5px rgba(20, 127, 36, 0.6);
+        }
+        /* calc button */
+        .calc-button {
+            background-color: hsl(142, 83%, 50%);
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 10px 20px;
+            font-size: 15px;
+            font-weight:550;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        .calc-button:hover {
+            background-color:hsl(142, 83%, 60%);
+            color: rgb(0, 5, 3);
+        }
+        .calc-button:active {
+            background-color: hsl(142, 11%, 85%);
+            color: rgb(0, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <p>
+        YouTube Subscribe Button
+    </p>
+    <button class="button-subscribe" >Subscribe</button>
+    <div class="rock-paper-scissors">
+    <a href="rock-paper-scissors\08-rock-paper-scissors.html" target="_blank">Click to</a> Play
+    <h3>Rock, Paper, Scissors</h3>
+    </div><hr>
+
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 Shipping. </p>
+    <p>Orders above $40 = <strong>FREE</strong> Shipping. </p>
+    <hr>
+    
+        <input type="tel" name="Shipping-calc" id="order-input"  placeholder="Cost of Orders" class="js-cost-ofOrder cost-input" onkeydown="handleKeydown(event)"; autofocus> 
+        <button type="submit" id="calc" class="js-total-cost calc-button" onclick="calculateTotal()";>Calculate</button>
+
+        <p>Shipping Fee: $<i><strong></strong><span id ="shipping_fee">0</span></strong></i> </p>
+        <h3>Total Cost: $<span id="total-display">0</span></h3>
+    
+</body>
+
+<script>
+        let subscribe = document.querySelector('.button-subscribe');
+        subscribe.onclick = function() {
+            if (subscribe.innerText === 'Subscribe') {
+            subscribe.innerText = 'Subscribed';
+            subscribe.classList.add('is_subscribed-button');
+            }
+            else  {
+            subscribe.innerText = 'Subscribe'
+            subscribe.classList.remove('is_subscribed-button');
+           }
+        };
+
+
+// for the amazon shipping calculator 
+
+//button
+    const btn = document.getElementById('calc')
+       function calculateTotal() {
+            let inputElement = document.querySelector('.js-cost-ofOrder');
+            let cost = Number(inputElement.value);
+            var shippingFee = 0
+
+
+            if (cost < 40) {
+                cost += 10
+                shippingFee += 10
+            }
+            else if (cost > 40) {
+                 cost = cost
+                 shippingFee = shippingFee
+            }
+             else  {
+                cost = 0   
+                shippingFee = 0
+            }
+             
+            document.getElementById('total-display').innerText = cost;
+            document.getElementById('shipping_fee').innerText = shippingFee;
+        };
+        // let Total = calculateTotal();
+
+// input
+    function handleKeydown(event) {
+        if (event.key === 'Enter') {
+            calculateTotal();
+        //    console.log(cost);
+        }
+    }
+</script>
+
+</html>
