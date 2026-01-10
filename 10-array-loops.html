@@ -14,7 +14,11 @@
 <script>
     // arrays
     // document.title = "10 array loops";
-    // let myArray = ["apple", "banana", "cherry", "date", "elderberry",];
+    // let myArray = ["apple", "banana", "cherry", "date", "elderberry"];
+    // for (let i = 0; index <= myArray.length - 1; i++) {
+    //     const valu = myArray[index]
+    //     console.log(valu)
+    // }
     // console.log(myArray)
     // console.log(myArray.length)
     // console.log(myArray[0][0]) //a
@@ -40,6 +44,24 @@
     for (i = 1; i<=6; i++) {
         console.log('while loop', i)
     }
+
+    const nums = [1, 1, 2 , 3]
+    let total = 0;
+    for (let i = 0; i < nums.length; i++) {
+        let num = nums[i];
+        total += num;
+    }
+console.log(total);
+console.log(nums[1]);
+
+    const numsdoubled = []
+    
+    for (let i = 0; i < nums.length; i++) {
+        let num = nums[i];
+        numsdoubled.push(num * 2);
+    }
+console.log(numsdoubled);
+console.log(nums[1]);
 
 </script>
 </html>

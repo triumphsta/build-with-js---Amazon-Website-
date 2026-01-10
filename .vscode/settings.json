@@ -1,5 +1,5 @@
 {
-  "liveServer.settings.port": 5502,
+  "liveServer.settings.port": 5500,
   "workbench.editor.alwaysShowEditorActions": true,
   "editor.cursorBlinking": "smooth",
   "cSpell.words": ["subcribe"]

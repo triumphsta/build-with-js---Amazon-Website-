@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+:root {
+  /* Colors */
+  --primary-color: hsl(186, 100%, 37%);
+  --primary-color-light: hsl(190, 45%, 87%);
+  --primary-color-dark: hsl(186, 100%, 40%);
+  --secondary-color: hsl(56, 80%, 53%); /* soft complementary color */
+  --error-color: red;
+  --reset-color: rgba(255, 0, 0, 0.65);
+  --input-border-color: var(--primary-color-light);
+  --background-color:hsl(240, 84%, 7%);
+
+  /* Fonts */
+  --font-size-base: 20px;
+  --font-size-label: 1rem;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+
+  /* Spacing */
+  --margin-base: 0.5rem;
+  --padding-base: 0.7rem;
+
+  /* Borders */
+  --border-radius: 1rem;
+  --border-width: 2px;
+
+  /* Buttons */
+  --button-width: 5rem;
+  --button-height:2.5rem;
+  --button-hover-padding: 7.1rem;
+  --button-active-padding: 4rem;
+  --button-padding: var(--padding-base);
+  --button-font-size: 16px;
+
+  /* Shadows */
+  --focus-box-shadow: 0 0 5px var(--primary-color-dark);
+
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 3rem;
+    background-color: var(--background-color);
+    
+}
+.body {
+    margin: 10rem;
+    margin-left: 15rem;
+    margin-right: 15rem;
+    text-align: left;
+}
+.todo_list .js-todo_output {
+    display: grid;
+    grid-template-columns:15rem 10rem 8rem 5rem;
+    
+}
+.js-todo_output {
+    
+    background-color: var(--background-color);
+    filter: brightness(1.9);
+    border-color: var(--secondary-color);
+    margin-top: var(--margin-base);
+    padding: var(--button-padding);
+    border:var(--border-width) solid var(--secondary-color);
+    border-radius: var(--border-radius);
+}
+.js-out {
+    display: flex;
+    align-items: center;
+}
+h1 {
+    color: var(--primary-color);
+    padding: var(--padding-base);
+    font-weight: var(--font-weight-bold);
+}
+span {
+    margin: 0.5rem;
+    color:var(--primary-color-light) ;
+    font-weight: var(--font-weight-normal);
+}
+
+/* INPUT */
+input {
+    font-size: var(--font-size-label);
+    padding: var(--padding-base);
+    margin: var(--margin-base);
+    outline: none;
+    border-radius: var(--border-radius);
+    border-width: var(--border-width);
+    border:var(--border-width) solid var(--input-border-color);
+}
+input:focus {
+    border-color: var(--input-border-color);
+    border:var(--border-width) dashed var(--input-border-color);
+}
+
+/* BUTTON */
+button {
+    font-size: var(--button-font-size);
+    padding: var(--button-padding);
+    width: var(--button-width);
+    height: var(--button-height);
+    border-radius: var(--border-radius);
+    outline: none;
+    
+    
+}
+button:active {
+    width: var(--button-active-padding);
+}   
+button:hover {
+    width: var(--button-hover-padding);
+}
+.add {
+    background-color: var(--secondary-color);
+}
+.delete {
+    background-color: var(--error-color);
+    color: var(--primary-color-light);
+    border-color: var(--error-color);
+}
