@@ -29,6 +29,7 @@
         </div>
         <div>
             <button type="reset" id="resetScore">Reset Game</button>
+            <button id="autoPlay" onclick="toggleAutoPlay()">Auto Play</button>
         </div>
         <div>
         <button id="historu">
@@ -42,8 +43,7 @@
 <script>
 
 
-  
-    
+     
     let score = {
         wins: 0,
         losses: 0,
@@ -66,12 +66,43 @@
     function getComputerChoice() {
         return choices[Math.floor(Math.random() * choices.length)]
     }
-    
-   
+     var computerMove = getComputerChoice();
+     let isAutoPlaying = false;
+    let autoPlayInterval = null;
+
+    // BUTTON TOGGLE
+    function toggleAutoPlay() {
+        const autoPlayButton = document.getElementById('autoPlay');
+
+        if (!isAutoPlaying) {
+            autoPlay(); // start
+            autoPlayButton.innerText = 'Stop Auto Play';
+            isAutoPlaying = true;
+
+        } else {
+            clearInterval(autoPlayInterval); // stop
+            autoPlayButton.innerText = 'Auto Play';
+            isAutoPlaying = false;
+        }
+    }
+
+
+    // AUTOPLAY ENGINE
+    function autoPlay() {
+        autoPlayInterval = setInterval(function () {
+
+            const autoMove =
+                choices[Math.floor(Math.random() * choices.length)];
+
+            playRound(autoMove);
+
+        }, 2000);
+    }
+
     // user move function
     function playRound(userMove) {
         let result = '';
-        const computerMove = getComputerChoice();
+       
 
         if (userMove === computerMove) {
             result = 'Tie';

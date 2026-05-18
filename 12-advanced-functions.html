@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="js-button">Click</button>
+    
+
+<script>
+
+    const buttonElement = document.querySelector('.js-button');
+ eventListener = () => {
+        console.log('clicked');
+    }
+    buttonElement.addEventListener('click', eventListener);
+
+     buttonElement.removeEventListener('click', eventListener);
+
+    buttonElement.addEventListener('click', () => {
+        console.log('clicked2');
+    });
+   
+
+    /*
+    const greeting = () => {
+        console.log('hello')
+        return;
+    }
+    greeting();
+    console.log(greeting())
+,
+    // set time out
+    setTimeout(function() {
+        console.log('timeout');
+    }, 2000
+    );
+    console.log('next')
+
+    setInterval(function() {
+        console.log('interval');
+    }, 3000
+    
+    );
+
+// WAYS TO LOOP THROUGH AN ARRAY
+
+// 1 the  for of loop
+ const players = ['Alice', 'Bob', 'Charlie', 'David', 'Eve'];
+ for (const [ index, player,] of players.entries()) {
+     setTimeout(function() {
+        b = index + 1;
+         console.log(`${b}: ${player}`);
+     }, 1000);
+ }
+
+//  2 the forEach method
+ players.forEach(function(player, index) {
+     setTimeout(function() {
+         console.log(`${index} ${player}`);
+     }, 1000);
+ });
+
+//   LOOPING THROUGH AN OBJECT
+const user = {
+    name: "Triumph",
+    age: 16,
+    country: "Nigeria"
+};
+
+for (const [key, value] of Object.entries(user)) {
+    console.log(`${key}: ${user}`);
+}
+
+const object2 = {
+    method() {}
+    // shortcut for writing function in an object
+
+}; */
+ let uu =  Alice;
+ const players = ['Alice', 'Bob', 'Charlie', 'David', 'Eve'].lowerCase;
+
+ console.log(players.filter((value, index) => {
+    if (uu === value)
+    return value;
+ }))
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+
+</html>
