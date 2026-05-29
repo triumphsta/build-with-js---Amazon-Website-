@@ -5,6 +5,11 @@ import { formatCurrency } from "./utils/money.js";
 
 
 // console.log(cart)
+function updateCartQuantity() {
+  document.querySelector(".js-cart-quantity").innerText = cart.length;
+}
+updateCartQuantity();
+
 let productDisplay = products.map((p) => {
   return `<div class="product-container">
           <div class="product-image-container">
@@ -64,7 +69,7 @@ document.querySelectorAll('.js-add_button').forEach(button => {
   button.addEventListener('click', () => {
   let productId = button.dataset.productId;
    addCart(productId);
-  document.querySelector('.cart-quantity').innerHTML =  cart.length;
+  updateCartQuantity();
   console.log(cart.length)
 
   }) 
